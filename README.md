@@ -10,7 +10,7 @@
   - [proj](https://github.com/stac-extensions/projection/)
   - [sat](https://github.com/stac-extensions/sat)
 
-This repository will assist you in the generation of STAC files for Sentinel 3 OLCI (level 1 EFR, ERR and level 2 LFR, LRR, WFR) and SLSTR (level 1 RBT and level 2 FRP, LST, WST) datasets.
+This repository will assist you in the generation of STAC files for Sentinel 3 OLCI (level 1 EFR, ERR and level 2 LFR, LRR, WFR), SLSTR (level 1 RBT and level 2 FRP, LST, WST), SRAL (level 2 LAN and WAT), and SYNERGY (level 2 AOD, SYN, V10, VG1, VGP) datasets.
 
 ## Examples
 
