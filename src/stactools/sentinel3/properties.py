@@ -87,16 +87,12 @@ def fill_proj_properties(proj_ext, product_meta):
 
     proj_ext.epsg = product_meta.get_epsg
 
-    if (
-        product_meta.scene_id.split("_")[1] == "SR" and 
-        product_meta.scene_id.split("_")[2] == "2"
-        ):
+    if (product_meta.scene_id.split("_")[1] == "SR"
+            and product_meta.scene_id.split("_")[2] == "2"):
         pass
-    elif (
-        product_meta.scene_id.split("_")[1] == "SY" and
-        product_meta.scene_id.split("_")[2] == "2" and 
-        product_meta.scene_id.split("_")[3] != "AOD"
-        ):
+    elif (product_meta.scene_id.split("_")[1] == "SY"
+          and product_meta.scene_id.split("_")[2] == "2"
+          and product_meta.scene_id.split("_")[3] != "AOD"):
         pass
     else:
         proj_ext.shape = product_meta.get_shape

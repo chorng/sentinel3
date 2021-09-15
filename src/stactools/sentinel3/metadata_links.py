@@ -5,7 +5,7 @@ import pystac
 from stactools.core.io.xml import XmlElement
 
 from .constants import (SAFE_MANIFEST_ASSET_KEY, SENTINEL_OLCI_BANDS,
-                        SENTINEL_SLSTR_BANDS, SENTINEL_SRAL_BANDS, 
+                        SENTINEL_SLSTR_BANDS, SENTINEL_SRAL_BANDS,
                         SENTINEL_SYNERGY_BANDS)
 
 
@@ -64,7 +64,7 @@ class MetadataLinks:
 
         root = XmlElement.from_file(self.product_metadata_href)
         product_type = root.findall(".//sentinel3:productType")[0].text
-        
+
         if product_type.split("_")[0] == "OL":
             instrument_bands = SENTINEL_OLCI_BANDS
         elif product_type.split("_")[0] == "SL":
@@ -79,8 +79,10 @@ class MetadataLinks:
                 band_dict = {
                     "name": instrument_bands[band].name,
                     "description": instrument_bands[band].description,
-                    "central_frequency": instrument_bands[band].center_wavelength,
-                    "band_width_in_Hz": instrument_bands[band].full_width_half_max
+                    "central_frequency":
+                    instrument_bands[band].center_wavelength,
+                    "band_width_in_Hz":
+                    instrument_bands[band].full_width_half_max
                 }
                 band_dict_list.append(band_dict)
         elif instrument_bands == SENTINEL_SYNERGY_BANDS:
@@ -94,7 +96,8 @@ class MetadataLinks:
                 band_dict = {
                     "name": instrument_bands[band].name,
                     "description": instrument_bands[band].description,
-                    "center_wavelength": instrument_bands[band].center_wavelength,
+                    "center_wavelength":
+                    instrument_bands[band].center_wavelength,
                     "band_width": instrument_bands[band].full_width_half_max
                 }
                 band_dict_list.append(band_dict)
@@ -103,7 +106,8 @@ class MetadataLinks:
                 band_dict = {
                     "name": instrument_bands[band].name,
                     "description": instrument_bands[band].description,
-                    "center_wavelength": instrument_bands[band].center_wavelength,
+                    "center_wavelength":
+                    instrument_bands[band].center_wavelength,
                     "band_width": instrument_bands[band].full_width_half_max
                 }
                 band_dict_list.append(band_dict)

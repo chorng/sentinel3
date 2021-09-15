@@ -141,7 +141,7 @@ class ProductMetadata:
     def metadata_dict(self) -> Dict[str, Any]:
         product_type = self._root.findall(".//sentinel3:productType")[0].text
         if (product_type.split("_")[0] == "OL"
-            and product_type.split("_")[1] == "1"):
+                and product_type.split("_")[1] == "1"):
             result = {
                 "start_datetime":
                 str(self.start_datetime),
@@ -423,7 +423,7 @@ class ProductMetadata:
                         self._root.find_attr("percentage",
                                              ".//slstr:outOfRangePixels"))),
             }
-        elif (product_type.split("_")[0] == "SR" 
+        elif (product_type.split("_")[0] == "SR"
               and product_type.split("_")[1] == "2"):
             result = {
                 "start_datetime":
@@ -447,11 +447,15 @@ class ProductMetadata:
                 "s3:landPercentage":
                 float(self._root.findall(".//sral:landPercentage")[0].text),
                 "s3:closedSeaPercentage":
-                float(self._root.findall(".//sral:closedSeaPercentage")[0].text),
+                float(
+                    self._root.findall(".//sral:closedSeaPercentage")[0].text),
                 "s3:continentalIcePercentage":
-                float(self._root.findall(".//sral:continentalIcePercentage")[0].text),
+                float(
+                    self._root.findall(".//sral:continentalIcePercentage")
+                    [0].text),
                 "s3:openOceanPercentage":
-                float(self._root.findall(".//sral:openOceanPercentage")[0].text),
+                float(
+                    self._root.findall(".//sral:openOceanPercentage")[0].text),
             }
         elif "SY_2_AOD" in product_type:
             result = {
@@ -472,11 +476,13 @@ class ProductMetadata:
                 "s3:salineWaterPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:salineWaterPixels"))),
+                        self._root.find_attr(
+                            "percentage", ".//sentinel3:salineWaterPixels"))),
                 "s3:landPixels_percentage":
-                float(str(self._root.find_attr("percentage",
-                                               ".//sentinel3:landPixels"))),
+                float(
+                    str(
+                        self._root.find_attr("percentage",
+                                             ".//sentinel3:landPixels"))),
             }
         elif "SY_2_SYN" in product_type:
             result = {
@@ -497,26 +503,29 @@ class ProductMetadata:
                 "s3:salineWaterPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:salineWaterPixels"))),
+                        self._root.find_attr(
+                            "percentage", ".//sentinel3:salineWaterPixels"))),
                 "s3:coastalPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
+                        self._root.find_attr("percentage",
                                              ".//sentinel3:coastalPixels"))),
                 "s3:freshInlandWaterPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:freshInlandWaterPixels"))),
+                        self._root.find_attr(
+                            "percentage",
+                            ".//sentinel3:freshInlandWaterPixels"))),
                 "s3:tidalRegionPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:tidalRegionPixels"))),
+                        self._root.find_attr(
+                            "percentage", ".//sentinel3:tidalRegionPixels"))),
                 "s3:landPixels_percentage":
-                float(str(self._root.find_attr("percentage",
-                                               ".//sentinel3:landPixels"))),
+                float(
+                    str(
+                        self._root.find_attr("percentage",
+                                             ".//sentinel3:landPixels"))),
             }
         elif "SY_2_V10" in product_type:
             result = {
@@ -537,11 +546,13 @@ class ProductMetadata:
                 "s3:snowOrIcePixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
+                        self._root.find_attr("percentage",
                                              ".//sentinel3:snowOrIcePixels"))),
                 "s3:landPixels_percentage":
-                float(str(self._root.find_attr("percentage",
-                                               ".//sentinel3:landPixels"))),
+                float(
+                    str(
+                        self._root.find_attr("percentage",
+                                             ".//sentinel3:landPixels"))),
             }
         elif "SY_2_VG1" in product_type:
             result = {
@@ -562,11 +573,13 @@ class ProductMetadata:
                 "s3:snowOrIcePixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
+                        self._root.find_attr("percentage",
                                              ".//sentinel3:snowOrIcePixels"))),
                 "s3:landPixels_percentage":
-                float(str(self._root.find_attr("percentage",
-                                               ".//sentinel3:landPixels"))),
+                float(
+                    str(
+                        self._root.find_attr("percentage",
+                                             ".//sentinel3:landPixels"))),
             }
         elif "SY_2_VGP" in product_type:
             result = {
@@ -587,31 +600,34 @@ class ProductMetadata:
                 "s3:snowOrIcePixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
+                        self._root.find_attr("percentage",
                                              ".//sentinel3:snowOrIcePixels"))),
                 "s3:salineWaterPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:salineWaterPixels"))),
+                        self._root.find_attr(
+                            "percentage", ".//sentinel3:salineWaterPixels"))),
                 "s3:coastalPixelss_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
+                        self._root.find_attr("percentage",
                                              ".//sentinel3:coastalPixels"))),
                 "s3:freshInlandWaterPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:freshInlandWaterPixels"))),
+                        self._root.find_attr(
+                            "percentage",
+                            ".//sentinel3:freshInlandWaterPixels"))),
                 "s3:tidalRegionPixels_percentage":
                 float(
                     str(
-                        self._root.find_attr("percentage", 
-                                             ".//sentinel3:tidalRegionPixels"))),
+                        self._root.find_attr(
+                            "percentage", ".//sentinel3:tidalRegionPixels"))),
                 "s3:landPixels_percentage":
-                float(str(self._root.find_attr("percentage",
-                                               ".//sentinel3:landPixels"))),
+                float(
+                    str(
+                        self._root.find_attr("percentage",
+                                             ".//sentinel3:landPixels"))),
             }
         return {k: v for k, v in result.items() if v is not None}
 
