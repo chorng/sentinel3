@@ -639,13 +639,13 @@ OLCI_L1_ASSET_KEYS = [
     "Oa21_radianceData"
 ]
 
-OLCI_L2_LAND_PRODUCT_KEYS = [
+OLCI_L2_LAND_ASSET_KEYS = [
     "ogviData",
     "otciData",
     "iwvData"
 ]
 
-OLCI_L2_WATER_PRODUCT_KEYS = [
+OLCI_L2_WATER_ASSET_KEYS = [
     "Oa01_reflectanceData",
     "Oa02_reflectanceData",
     "Oa03_reflectanceData",
@@ -664,10 +664,24 @@ OLCI_L2_WATER_PRODUCT_KEYS = [
     "Oa21_reflectanceData",
     "chlNnData",
     "chlOc4meData",
-    "tsmNnData",
     "iopNnData",
-    "parData",
-    "wAerData",
     "iwvData",
-    
+    "parData",
+    "trspData",
+    "tsmNnData",
+    "wAerData"
+]
+
+SLSTR_L1_ASSET_KEYS = [
+    "SLSTR_S1_RAD_AN_Data",
+    "SLSTR_S2_RAD_AN_Data",
+    "SLSTR_S3_RAD_AN_Data",
+    "SLSTR_S4_RAD_AN_Data",
+    "SLSTR_S5_RAD_AN_Data",
+    "SLSTR_S6_RAD_AN_Data",
+    "SLSTR_S7_BT_IN_Data",
+    "SLSTR_S8_BT_IN_Data",
+    "SLSTR_S9_BT_IN_Data",
+    "SLSTR_F1_BT_FN_Data",
+    "SLSTR_F2_BT_IN_Data"
 ]

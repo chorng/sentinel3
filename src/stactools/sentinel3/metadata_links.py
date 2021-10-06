@@ -8,7 +8,8 @@ from .constants import (SAFE_MANIFEST_ASSET_KEY, SENTINEL_OLCI_BANDS,
                         SENTINEL_SLSTR_BANDS, SENTINEL_SRAL_BANDS,
                         SENTINEL_SYNERGY_BANDS, SYNERGY_SYN_ASSET_KEYS,
                         SYNERGY_V10_VG1_VGP_ASSET_KEYS, OLCI_L1_ASSET_KEYS,
-                        OLCI_L2_LAND_PRODUCT_KEYS)
+                        OLCI_L2_LAND_ASSET_KEYS, OLCI_L2_WATER_ASSET_KEYS,
+                        SLSTR_L1_ASSET_KEYS)
 
 
 class ManifestError(Exception):
@@ -192,7 +193,7 @@ class MetadataLinks:
                                              extra_fields={"eo:bands": band_dict})
                     asset_list.append(asset_obj)
             elif any(_str in product_type for _str in ["_LFR_", "_LRR_"]):
-                asset_key_list = OLCI_L2_LAND_PRODUCT_KEYS
+                asset_key_list = OLCI_L2_LAND_ASSET_KEYS
                 for asset_key in asset_key_list:
                     if asset_key == "ogviData":
                         band_key_list = ["Oa03", "Oa10", "Oa17"]
@@ -224,21 +225,209 @@ class MetadataLinks:
                                                 roles=["data"],
                                                 extra_fields={"eo:bands": band_dict_list})
                     asset_list.append(asset_obj)
-        #     else:
-
-        # else:
-        #     for band in instrument_bands:
-        #         band_dict = {
-        #             "name": instrument_bands[band].name,
-        #             "description": instrument_bands[band].description,
-        #             "center_wavelength":
-        #             instrument_bands[band].center_wavelength,
-        #             "band_width": instrument_bands[band].full_width_half_max
-        #         }
-        #         band_dict_list.append(band_dict)
-
-        # asset = pystac.Asset(href=self.href,
-        #                      media_type=pystac.MediaType.XML,
-        #                      roles=["metadata"],
-        #                      extra_fields={"band_fields": band_dict_list})
+            elif "_WFR_" in product_type:
+                asset_key_list = OLCI_L2_WATER_ASSET_KEYS
+                for asset_key in asset_key_list:
+                    if (asset_key == "chlNnData" or asset_key == "tsmNnData"):
+                        band_key_list = [
+                            "Oa01",
+                            "Oa02",
+                            "Oa03",
+                            "Oa04",
+                            "Oa05",
+                            "Oa06",
+                            "Oa07",
+                            "Oa08",
+                            "Oa09",
+                            "Oa10",
+                            "Oa11",
+                            "Oa12",
+                            "Oa16",
+                            "Oa17",
+                            "Oa18",
+                            "Oa21"
+                        ]
+                    elif asset_key == "chlOc4meData":
+                        band_key_list = [
+                            "Oa03",
+                            "Oa04",
+                            "Oa05",
+                            "Oa06"
+                        ]
+                    elif asset_key == "iopNnData":
+                        band_key_list = [
+                            "Oa01",
+                            "Oa12",
+                            "Oa16",
+                            "Oa17",
+                            "Oa21",
+                        ]
+                    elif asset_key == "iwvData":
+                        band_key_list = [
+                            "Oa18",
+                            "Oa19",
+                        ]
+                    elif asset_key == "parData":
+                        band_key_list = []
+                    elif asset_key == "trspData":
+                        band_key_list = [
+                            "Oa04",
+                            "Oa06"
+                        ]
+                    elif asset_key == "wAerData":
+                        band_key_list = [
+                            "Oa05",
+                            "Oa06",
+                            "Oa17"
+                        ]
+                    else:
+                        band_key_list = [asset_key[:4]]
+                    if not band_key_list:
+                        band_dict_list = [{"description": "Spectral range 400-700 nm"}]
+                    else:
+                        band_dict_list = []
+                        for band in band_key_list:
+                            band_dict = {
+                                "name": instrument_bands[band].name,
+                                "description": instrument_bands[band].description,
+                                "center_wavelength":
+                                instrument_bands[band].center_wavelength,
+                                "band_width": instrument_bands[band].full_width_half_max
+                            }
+                            band_dict_list.append(band_dict)
+                    asset_location = root.find_attr(
+                        "href", 
+                        f".//dataObject[@ID='{asset_key}']//fileLocation")
+                    asset_href = os.path.join(
+                        self.granule_href,
+                        asset_location.split("/")[1])
+                    media_type = root.find_attr(
+                        "mimeType",
+                        f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_obj = pystac.Asset(href=asset_href,
+                                                media_type=media_type,
+                                                roles=["data"],
+                                                extra_fields={"eo:bands": band_dict_list})
+                    asset_list.append(asset_obj)
+        elif instrument_bands == SENTINEL_SLSTR_BANDS:
+            if "SL_1_" in product_type:
+                asset_key_list = SLSTR_L1_ASSET_KEYS
+                for asset_key, band in zip(asset_key_list, instrument_bands):
+                    band_dict = {
+                        "name": instrument_bands[band].name,
+                        "description": instrument_bands[band].description,
+                        "center_wavelength":
+                        instrument_bands[band].center_wavelength,
+                        "band_width": instrument_bands[band].full_width_half_max
+                    }
+                    asset_location = root.find_attr(
+                        "href", 
+                        f".//dataObject[@ID='{asset_key}']//fileLocation")
+                    asset_href = os.path.join(
+                        self.granule_href,
+                        asset_location.split("/")[1])
+                    media_type = root.find_attr(
+                        "mimeType",
+                        f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_obj = pystac.Asset(href=asset_href,
+                                             media_type=media_type,
+                                             roles=["data"],
+                                             extra_fields={"eo:bands": band_dict})
+                    asset_list.append(asset_obj)
+            elif "_FRP_" in product_type:
+                asset_key_list = ["FRP_IN_Data"]
+                band_key_list = [
+                    "S05", 
+                    "S06",
+                    "S07",
+                    "S10"
+                ]
+                band_dict_list = []
+                for asset_key in asset_key_list:
+                    for band in band_key_list:
+                        band_dict = {
+                            "name": instrument_bands[band].name,
+                            "description": instrument_bands[band].description,
+                            "center_wavelength":
+                            instrument_bands[band].center_wavelength,
+                            "band_width": instrument_bands[band].full_width_half_max
+                        }
+                        band_dict_list.append(band_dict)
+                    asset_location = root.find_attr(
+                        "href", 
+                        f".//dataObject[@ID='{asset_key}']//fileLocation")
+                    asset_href = os.path.join(
+                        self.granule_href,
+                        asset_location.split("/")[1])
+                    media_type = root.find_attr(
+                        "mimeType",
+                        f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_obj = pystac.Asset(href=asset_href,
+                                                media_type=media_type,
+                                                roles=["data"],
+                                                extra_fields={"eo:bands": band_dict_list})
+                    asset_list.append(asset_obj)
+            elif "_LST_" in product_type:
+                asset_key_list = ["LST_IN_Data"]
+                band_key_list = [
+                    "S08",
+                    "S09"
+                ]
+                band_dict_list = []
+                for asset_key in asset_key_list:
+                    for band in band_key_list:
+                        band_dict = {
+                            "name": instrument_bands[band].name,
+                            "description": instrument_bands[band].description,
+                            "center_wavelength":
+                            instrument_bands[band].center_wavelength,
+                            "band_width": instrument_bands[band].full_width_half_max
+                        }
+                        band_dict_list.append(band_dict)
+                    asset_location = root.find_attr(
+                        "href", 
+                        f".//dataObject[@ID='{asset_key}']//fileLocation")
+                    asset_href = os.path.join(
+                        self.granule_href,
+                        asset_location.split("/")[1])
+                    media_type = root.find_attr(
+                        "mimeType",
+                        f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_obj = pystac.Asset(href=asset_href,
+                                                media_type=media_type,
+                                                roles=["data"],
+                                                extra_fields={"eo:bands": band_dict_list})
+                    asset_list.append(asset_obj)
+            elif "_WST_" in product_type:
+                asset_key_list = ["L2P_Data"]
+                band_key_list = [
+                    "S07",
+                    "S08",
+                    "S09"
+                ]
+                band_dict_list = []
+                for asset_key in asset_key_list:
+                    for band in band_key_list:
+                        band_dict = {
+                            "name": instrument_bands[band].name,
+                            "description": instrument_bands[band].description,
+                            "center_wavelength":
+                            instrument_bands[band].center_wavelength,
+                            "band_width": instrument_bands[band].full_width_half_max
+                        }
+                        band_dict_list.append(band_dict)
+                    asset_location = root.find_attr(
+                        "href", 
+                        f".//dataObject[@ID='{asset_key}']//fileLocation")
+                    asset_href = os.path.join(
+                        self.granule_href,
+                        asset_location.split("/")[1])
+                    media_type = root.find_attr(
+                        "mimeType",
+                        f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_obj = pystac.Asset(href=asset_href,
+                                                media_type=media_type,
+                                                roles=["data"],
+                                                extra_fields={"eo:bands": band_dict_list})
+                    asset_list.append(asset_obj)    
         return (asset_key_list, asset_list)
