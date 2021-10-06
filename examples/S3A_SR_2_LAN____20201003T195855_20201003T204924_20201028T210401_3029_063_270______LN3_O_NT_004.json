@@ -868,10 +868,11 @@
         "metadata"
       ]
     },
-    "eo:bands": {
-      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SR_2_LAN____20201003T195855_20201003T204924_20201028T210401_3029_063_270______LN3_O_NT_004.SEN3/xfdumanifest.xml",
-      "type": "application/xml",
-      "band_fields": [
+    "standardMeasurementData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SR_2_LAN____20201003T195855_20201003T204924_20201028T210401_3029_063_270______LN3_O_NT_004.SEN3/standard_measurement.nc",
+      "type": "application/x-netcdf",
+      "description": "Measurement Data Object File",
+      "eo:bands": [
         {
           "name": "C",
           "description": "Band C - Ionospheric correction",
@@ -886,7 +887,7 @@
         }
       ],
       "roles": [
-        "metadata"
+        "data"
       ]
     }
   },

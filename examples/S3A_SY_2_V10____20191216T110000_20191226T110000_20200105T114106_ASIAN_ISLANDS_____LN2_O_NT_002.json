@@ -1241,28 +1241,59 @@
         "metadata"
       ]
     },
-    "eo:bands": {
-      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_V10____20191216T110000_20191226T110000_20200105T114106_ASIAN_ISLANDS_____LN2_O_NT_002.SEN3/xfdumanifest.xml",
-      "type": "application/xml",
-      "band_fields": [
+    "b0Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_V10____20191216T110000_20191226T110000_20200105T114106_ASIAN_ISLANDS_____LN2_O_NT_002.SEN3/B0.nc",
+      "type": "application/x-netcdf",
+      "description": "Surface Reflectance Data Set associated with VGT-B0 channel",
+      "eo:bands": [
         {
           "name": "B0",
           "description": "OLCI channels Oa02, Oa03",
           "center_wavelength": 450,
           "band_width": 20
-        },
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "b2Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_V10____20191216T110000_20191226T110000_20200105T114106_ASIAN_ISLANDS_____LN2_O_NT_002.SEN3/B2.nc",
+      "type": "application/x-netcdf",
+      "description": "Surface Reflectance Data Set associated with VGT-B2 channel",
+      "eo:bands": [
         {
           "name": "B2",
           "description": "OLCI channels Oa06, Oa07, Oa08, Oa09, Oa10",
           "center_wavelength": 645,
           "band_width": 35
-        },
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "b3Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_V10____20191216T110000_20191226T110000_20200105T114106_ASIAN_ISLANDS_____LN2_O_NT_002.SEN3/B3.nc",
+      "type": "application/x-netcdf",
+      "description": "Surface Reflectance Data Set associated with VGT-B3 channel",
+      "eo:bands": [
         {
           "name": "B3",
           "description": "OLCI channels Oa16, Oa17, Oa18, Oa21",
           "center_wavelength": 835,
           "band_width": 55
-        },
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "mirData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_V10____20191216T110000_20191226T110000_20200105T114106_ASIAN_ISLANDS_____LN2_O_NT_002.SEN3/MIR.nc",
+      "type": "application/x-netcdf",
+      "description": "Surface Reflectance Data Set associated with VGT-MIR channel",
+      "eo:bands": [
         {
           "name": "MIR",
           "description": "SLSTR nadir and oblique channels S5, S6",
@@ -1271,7 +1302,7 @@
         }
       ],
       "roles": [
-        "metadata"
+        "data"
       ]
     }
   },
