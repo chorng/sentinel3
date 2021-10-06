@@ -78,40 +78,67 @@ class MetadataLinks:
         if instrument_bands == SENTINEL_SRAL_BANDS:
             asset_key_list = ["standardMeasurementData"]
             band_dict_list = []
-            for band in instrument_bands:
-                band_dict = {
-                    "name": instrument_bands[band].name,
-                    "description": instrument_bands[band].description,
-                    "central_frequency":
-                    instrument_bands[band].center_wavelength,
-                    "band_width_in_Hz":
-                    instrument_bands[band].full_width_half_max
-                }            
-                band_dict_list.append(band_dict)
-            asset_obj = pystac.Asset(href=os.path.join(self.granule_href, "standard_measurement.nc"),
-                                     media_type="application/x-netcdf",
-                                     roles=["data"],
-                                     extra_fields={"eo:bands": band_dict_list})
-            asset_list.append(asset_obj)
+            for asset_key in asset_key_list:
+                for band in instrument_bands:
+                    band_dict = {
+                        "name": instrument_bands[band].name,
+                        "description": instrument_bands[band].description,
+                        "central_frequency":
+                        instrument_bands[band].center_wavelength,
+                        "band_width_in_Hz":
+                        instrument_bands[band].full_width_half_max
+                    }            
+                    band_dict_list.append(band_dict)
+                asset_location = root.find_attr(
+                    "href", 
+                    f".//dataObject[@ID='{asset_key}']//fileLocation")
+                asset_href = os.path.join(
+                    self.granule_href,
+                    asset_location)
+                media_type = root.find_attr(
+                    "mimeType",
+                    f".//dataObject[@ID='{asset_key}']//byteStream")
+                asset_description = root.find_attr(
+                    "textInfo",
+                    f".//dataObject[@ID='{asset_key}']//fileLocation"
+                )
+                asset_obj = pystac.Asset(href=asset_href,
+                                        media_type=media_type,
+                                        description=asset_description,
+                                        roles=["data"],
+                                        extra_fields={"eo:bands": band_dict_list})
+                asset_list.append(asset_obj)
         elif instrument_bands == SENTINEL_SYNERGY_BANDS:
             if "_AOD_" in product_type:
                 band_key_list = list(SENTINEL_SYNERGY_BANDS.keys())[26:32]
                 asset_key_list = ["NTC_AOD_Data"]
                 band_dict_list = []
-                for band in band_key_list:
-                    band_dict = {
-                        "name": instrument_bands[band].name,
-                        "description": instrument_bands[band].description,
-                        "center_wavelength":
-                        instrument_bands[band].center_wavelength,
-                        "band_width": instrument_bands[band].full_width_half_max
-                    }
-                    band_dict_list.append(band_dict)
-                asset_obj = pystac.Asset(href=os.path.join(self.granule_href, "NTC_AOD.nc"),
-                                         media_type="application/x-netcdf",
-                                         roles=["data"],
-                                         extra_fields={"eo:bands": band_dict_list})
-                asset_list.append(asset_obj)
+                for asset_key in asset_key_list:
+                    for band in band_key_list:
+                        band_dict = {
+                            "name": instrument_bands[band].name,
+                            "description": instrument_bands[band].description,
+                            "center_wavelength":
+                            instrument_bands[band].center_wavelength,
+                            "band_width": instrument_bands[band].full_width_half_max
+                        }
+                        band_dict_list.append(band_dict)
+                    asset_location = root.find_attr(
+                        "href", 
+                        f".//dataObject[@ID='{asset_key}']//fileLocation")
+                    asset_href = os.path.join(
+                        self.granule_href,
+                        asset_location)
+                    media_type = root.find_attr(
+                        "mimeType",
+                        f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = "Global aerosol parameters"
+                    asset_obj = pystac.Asset(href=asset_href,
+                                            media_type=media_type,
+                                            description=asset_description,
+                                            roles=["data"],
+                                            extra_fields={"eo:bands": band_dict_list})
+                    asset_list.append(asset_obj)
             elif "_SYN_" in product_type:
                 asset_key_list = SYNERGY_SYN_ASSET_KEYS
                 band_key_list = list(SENTINEL_SYNERGY_BANDS.keys())[:26]
@@ -132,8 +159,13 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = root.find_attr(
+                        "textInfo",
+                        f".//dataObject[@ID='{asset_key}']//fileLocation"
+                    )
                     asset_obj = pystac.Asset(href=asset_href,
                                              media_type=media_type,
+                                             description=asset_description,
                                              roles=["data"],
                                              extra_fields={"eo:bands": band_dict})
                     asset_list.append(asset_obj)
@@ -162,8 +194,13 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = root.find_attr(
+                        "textInfo",
+                        f".//dataObject[@ID='{asset_key}']//fileLocation"
+                    )
                     asset_obj = pystac.Asset(href=asset_href,
                                              media_type=media_type,
+                                             description=asset_description,
                                              roles=["data"],
                                              extra_fields={"eo:bands": band_dict})
                     asset_list.append(asset_obj)
@@ -187,8 +224,13 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = root.find_attr(
+                        "textInfo",
+                        f".//dataObject[@ID='{asset_key}']//fileLocation"
+                    )
                     asset_obj = pystac.Asset(href=asset_href,
                                              media_type=media_type,
+                                             description=asset_description,
                                              roles=["data"],
                                              extra_fields={"eo:bands": band_dict})
                     asset_list.append(asset_obj)
@@ -220,8 +262,13 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = root.find_attr(
+                        "textInfo",
+                        f".//dataObject[@ID='{asset_key}']//fileLocation"
+                    )
                     asset_obj = pystac.Asset(href=asset_href,
                                                 media_type=media_type,
+                                                description=asset_description,
                                                 roles=["data"],
                                                 extra_fields={"eo:bands": band_dict_list})
                     asset_list.append(asset_obj)
@@ -304,8 +351,13 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = root.find_attr(
+                        "textInfo",
+                        f".//dataObject[@ID='{asset_key}']//fileLocation"
+                    )
                     asset_obj = pystac.Asset(href=asset_href,
                                                 media_type=media_type,
+                                                description=asset_description,
                                                 roles=["data"],
                                                 extra_fields={"eo:bands": band_dict_list})
                     asset_list.append(asset_obj)
@@ -329,8 +381,13 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = root.find_attr(
+                        "textInfo",
+                        f".//dataObject[@ID='{asset_key}']//fileLocation"
+                    )
                     asset_obj = pystac.Asset(href=asset_href,
                                              media_type=media_type,
+                                             description=asset_description,
                                              roles=["data"],
                                              extra_fields={"eo:bands": band_dict})
                     asset_list.append(asset_obj)
@@ -362,10 +419,12 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = "Fire Radiative Power (FRP) dataset"
                     asset_obj = pystac.Asset(href=asset_href,
-                                                media_type=media_type,
-                                                roles=["data"],
-                                                extra_fields={"eo:bands": band_dict_list})
+                                             media_type=media_type,
+                                             description=asset_description,
+                                             roles=["data"],
+                                             extra_fields={"eo:bands": band_dict_list})
                     asset_list.append(asset_obj)
             elif "_LST_" in product_type:
                 asset_key_list = ["LST_IN_Data"]
@@ -393,10 +452,12 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = "Land Surface Temperature (LST) values"
                     asset_obj = pystac.Asset(href=asset_href,
-                                                media_type=media_type,
-                                                roles=["data"],
-                                                extra_fields={"eo:bands": band_dict_list})
+                                             media_type=media_type,
+                                             description=asset_description,
+                                             roles=["data"],
+                                             extra_fields={"eo:bands": band_dict_list})
                     asset_list.append(asset_obj)
             elif "_WST_" in product_type:
                 asset_key_list = ["L2P_Data"]
@@ -425,9 +486,12 @@ class MetadataLinks:
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
+                    asset_description = ("Data respects the Group for High Resolution "
+                                         "Sea Surface Temperature (GHRSST) L2P specification")
                     asset_obj = pystac.Asset(href=asset_href,
-                                                media_type=media_type,
-                                                roles=["data"],
-                                                extra_fields={"eo:bands": band_dict_list})
+                                             media_type=media_type,
+                                             description=asset_description,
+                                             roles=["data"],
+                                             extra_fields={"eo:bands": band_dict_list})
                     asset_list.append(asset_obj)    
         return (asset_key_list, asset_list)
