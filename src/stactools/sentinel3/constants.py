@@ -13,7 +13,7 @@ SENTINEL_LICENSE = Link(
     "247904/690755/Sentinel_Data_Legal_Notice",
 )
 
-SENTINEL_CONSTELLATION = "Sentinel 3"
+SENTINEL_CONSTELLATION = "Sentinel-3"
 
 SENTINEL_INSTRUMENTS = ["slstr"]
 
