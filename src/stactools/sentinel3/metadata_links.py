@@ -4,15 +4,13 @@ from typing import List, Optional
 import pystac
 from stactools.core.io.xml import XmlElement
 
-from .constants import (OLCI_L1_ASSET_KEYS, OLCI_L2_LAND_ASSET_KEYS,
-                        OLCI_L2_WATER_ASSET_KEYS, SAFE_MANIFEST_ASSET_KEY,
-                        SENTINEL_OLCI_BANDS, SENTINEL_SLSTR_BANDS,
-                        SENTINEL_SRAL_BANDS, SENTINEL_SYNERGY_BANDS,
-                        SLSTR_L1_ASSET_KEYS, SYNERGY_SYN_ASSET_KEYS,
-                        SYNERGY_V10_VG1_ASSET_KEYS, SLSTR_L2_FRP_KEYS,
-                        SLSTR_L2_LST_KEYS, SRAL_L2_LAN_WAT_KEYS, 
-                        SYNERGY_L2_A550_T550_BANDS, SYNERGY_L2_SDR_BANDS,
-                        SENTINEL_OLCI_SLSTR_BANDS, SYNERGY_VGP_ASSET_KEYS)
+from .constants import (
+    OLCI_L1_ASSET_KEYS, OLCI_L2_LAND_ASSET_KEYS, OLCI_L2_WATER_ASSET_KEYS,
+    SAFE_MANIFEST_ASSET_KEY, SENTINEL_OLCI_BANDS, SENTINEL_OLCI_SLSTR_BANDS,
+    SENTINEL_SLSTR_BANDS, SENTINEL_SRAL_BANDS, SENTINEL_SYNERGY_BANDS,
+    SLSTR_L1_ASSET_KEYS, SLSTR_L2_FRP_KEYS, SLSTR_L2_LST_KEYS,
+    SRAL_L2_LAN_WAT_KEYS, SYNERGY_L2_A550_T550_BANDS, SYNERGY_L2_SDR_BANDS,
+    SYNERGY_SYN_ASSET_KEYS, SYNERGY_V10_VG1_ASSET_KEYS, SYNERGY_VGP_ASSET_KEYS)
 
 
 class ManifestError(Exception):
@@ -151,8 +149,10 @@ class MetadataLinks:
                         band_key = list(SENTINEL_SYNERGY_BANDS.keys())[ind]
                         band_dict_list = []
                         band_dict = {
-                            "name": instrument_bands[band_key].name,
-                            "description": instrument_bands[band_key].description,
+                            "name":
+                            instrument_bands[band_key].name,
+                            "description":
+                            instrument_bands[band_key].description,
                             "center_wavelength":
                             instrument_bands[band_key].center_wavelength,
                             "band_width":
@@ -164,12 +164,16 @@ class MetadataLinks:
                         band_dict_list = []
                         for band in band_key_list:
                             band_dict = {
-                                "name": SENTINEL_OLCI_SLSTR_BANDS[band].name,
-                                "description": SENTINEL_OLCI_SLSTR_BANDS[band].description,
+                                "name":
+                                SENTINEL_OLCI_SLSTR_BANDS[band].name,
+                                "description":
+                                SENTINEL_OLCI_SLSTR_BANDS[band].description,
                                 "center_wavelength":
-                                SENTINEL_OLCI_SLSTR_BANDS[band].center_wavelength,
+                                SENTINEL_OLCI_SLSTR_BANDS[band].
+                                center_wavelength,
                                 "band_width":
-                                SENTINEL_OLCI_SLSTR_BANDS[band].full_width_half_max
+                                SENTINEL_OLCI_SLSTR_BANDS[band].
+                                full_width_half_max
                             }
                             band_dict_list.append(band_dict)
                     elif ind == 28:
@@ -177,12 +181,16 @@ class MetadataLinks:
                         band_dict_list = []
                         for band in band_key_list:
                             band_dict = {
-                                "name": SENTINEL_OLCI_SLSTR_BANDS[band].name,
-                                "description": SENTINEL_OLCI_SLSTR_BANDS[band].description,
+                                "name":
+                                SENTINEL_OLCI_SLSTR_BANDS[band].name,
+                                "description":
+                                SENTINEL_OLCI_SLSTR_BANDS[band].description,
                                 "center_wavelength":
-                                SENTINEL_OLCI_SLSTR_BANDS[band].center_wavelength,
+                                SENTINEL_OLCI_SLSTR_BANDS[band].
+                                center_wavelength,
                                 "band_width":
-                                SENTINEL_OLCI_SLSTR_BANDS[band].full_width_half_max
+                                SENTINEL_OLCI_SLSTR_BANDS[band].
+                                full_width_half_max
                             }
                             band_dict_list.append(band_dict)
                     else:
@@ -207,21 +215,24 @@ class MetadataLinks:
                             extra_fields={"eo:bands": band_dict_list})
                         asset_list.append(asset_obj)
                     else:
-                        asset_obj = pystac.Asset(
-                            href=asset_href,
-                            media_type=media_type,
-                            description=asset_description,
-                            roles=["data"])
+                        asset_obj = pystac.Asset(href=asset_href,
+                                                 media_type=media_type,
+                                                 description=asset_description,
+                                                 roles=["data"])
                         asset_list.append(asset_obj)
-            elif any(product_id in product_type for product_id in ["_VG1_", "_V10_"]):
+            elif any(product_id in product_type
+                     for product_id in ["_VG1_", "_V10_"]):
                 asset_key_list = SYNERGY_V10_VG1_ASSET_KEYS
                 for ind, asset_key in enumerate(asset_key_list):
                     band_dict_list = []
                     if ind < 4:
-                        band_key = list(SENTINEL_SYNERGY_BANDS.keys())[-4:][ind]
+                        band_key = list(
+                            SENTINEL_SYNERGY_BANDS.keys())[-4:][ind]
                         band_dict = {
-                            "name": instrument_bands[band_key].name,
-                            "description": instrument_bands[band_key].description,
+                            "name":
+                            instrument_bands[band_key].name,
+                            "description":
+                            instrument_bands[band_key].description,
                             "center_wavelength":
                             instrument_bands[band_key].center_wavelength,
                             "band_width":
@@ -232,8 +243,10 @@ class MetadataLinks:
                         band_key_list = ["B2", "B3"]
                         for band in band_key_list:
                             band_dict = {
-                                "name": instrument_bands[band].name,
-                                "description": instrument_bands[band].description,
+                                "name":
+                                instrument_bands[band].name,
+                                "description":
+                                instrument_bands[band].description,
                                 "center_wavelength":
                                 instrument_bands[band].center_wavelength,
                                 "band_width":
@@ -248,8 +261,8 @@ class MetadataLinks:
                     # if "_VGP_" in product_type:
                     #     asset_href = os.path.join(self.granule_href,
                     #                               asset_location)
-                    asset_href = os.path.join(
-                        self.granule_href, asset_location.split("/")[1])
+                    asset_href = os.path.join(self.granule_href,
+                                              asset_location.split("/")[1])
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
@@ -265,21 +278,23 @@ class MetadataLinks:
                             extra_fields={"eo:bands": band_dict_list})
                         asset_list.append(asset_obj)
                     else:
-                        asset_obj = pystac.Asset(
-                            href=asset_href,
-                            media_type=media_type,
-                            description=asset_description,
-                            roles=["data"])
+                        asset_obj = pystac.Asset(href=asset_href,
+                                                 media_type=media_type,
+                                                 description=asset_description,
+                                                 roles=["data"])
                         asset_list.append(asset_obj)
             else:
                 asset_key_list = SYNERGY_VGP_ASSET_KEYS
                 for ind, asset_key in enumerate(asset_key_list):
                     band_dict_list = []
                     if ind < 4:
-                        band_key = list(SENTINEL_SYNERGY_BANDS.keys())[-4:][ind]
+                        band_key = list(
+                            SENTINEL_SYNERGY_BANDS.keys())[-4:][ind]
                         band_dict = {
-                            "name": instrument_bands[band_key].name,
-                            "description": instrument_bands[band_key].description,
+                            "name":
+                            instrument_bands[band_key].name,
+                            "description":
+                            instrument_bands[band_key].description,
                             "center_wavelength":
                             instrument_bands[band_key].center_wavelength,
                             "band_width":
@@ -291,8 +306,8 @@ class MetadataLinks:
                     asset_location = root.find_attr(
                         "href",
                         f".//dataObject[@ID='{asset_key}']//fileLocation")
-                    asset_href = os.path.join(
-                        self.granule_href, asset_location)
+                    asset_href = os.path.join(self.granule_href,
+                                              asset_location)
                     media_type = root.find_attr(
                         "mimeType",
                         f".//dataObject[@ID='{asset_key}']//byteStream")
@@ -308,11 +323,10 @@ class MetadataLinks:
                             extra_fields={"eo:bands": band_dict_list})
                         asset_list.append(asset_obj)
                     else:
-                        asset_obj = pystac.Asset(
-                            href=asset_href,
-                            media_type=media_type,
-                            description=asset_description,
-                            roles=["data"])
+                        asset_obj = pystac.Asset(href=asset_href,
+                                                 media_type=media_type,
+                                                 description=asset_description,
+                                                 roles=["data"])
                         asset_list.append(asset_obj)
         elif instrument_bands == SENTINEL_OLCI_BANDS:
             if "OL_1_" in product_type:
@@ -369,11 +383,10 @@ class MetadataLinks:
                         "textInfo",
                         f".//dataObject[@ID='{asset_key}']//fileLocation")
                     if not band_key_list:
-                        asset_obj = pystac.Asset(
-                            href=asset_href,
-                            media_type=media_type,
-                            description=asset_description,
-                            roles=["data"])
+                        asset_obj = pystac.Asset(href=asset_href,
+                                                 media_type=media_type,
+                                                 description=asset_description,
+                                                 roles=["data"])
                     else:
                         band_dict_list = []
                         for band in band_key_list:
@@ -425,7 +438,8 @@ class MetadataLinks:
                         band_key_list = ["Oa04", "Oa06"]
                     elif asset_key == "wAerData":
                         band_key_list = ["Oa05", "Oa06", "Oa17"]
-                    elif any(asset_key == key for key in OLCI_L2_WATER_ASSET_KEYS[-7:]):
+                    elif any(asset_key == key
+                             for key in OLCI_L2_WATER_ASSET_KEYS[-7:]):
                         band_key_list = []
                     else:
                         band_key_list = [asset_key[:4]]
@@ -541,11 +555,10 @@ class MetadataLinks:
                         asset_description = root.find_attr(
                             "textInfo",
                             f".//dataObject[@ID='{asset_key}']//fileLocation")
-                        asset_obj = pystac.Asset(
-                            href=asset_href,
-                            media_type=media_type,
-                            description=asset_description,
-                            roles=["data"])
+                        asset_obj = pystac.Asset(href=asset_href,
+                                                 media_type=media_type,
+                                                 description=asset_description,
+                                                 roles=["data"])
                         asset_list.append(asset_obj)
             elif "_LST_" in product_type:
                 asset_key_list = SLSTR_L2_LST_KEYS
@@ -588,11 +601,10 @@ class MetadataLinks:
                         asset_description = root.find_attr(
                             "textInfo",
                             f".//dataObject[@ID='{asset_key}']//fileLocation")
-                        asset_obj = pystac.Asset(
-                            href=asset_href,
-                            media_type=media_type,
-                            description=asset_description,
-                            roles=["data"])
+                        asset_obj = pystac.Asset(href=asset_href,
+                                                 media_type=media_type,
+                                                 description=asset_description,
+                                                 roles=["data"])
                         asset_list.append(asset_obj)
             elif "_WST_" in product_type:
                 asset_key_list = ["L2P_Data"]
