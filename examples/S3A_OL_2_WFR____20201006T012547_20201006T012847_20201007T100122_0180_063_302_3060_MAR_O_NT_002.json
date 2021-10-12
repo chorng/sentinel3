@@ -40,7 +40,7 @@
       }
     ],
     "platform": "Sentinel-3A",
-    "constellation": "Sentinel 3",
+    "constellation": "Sentinel-3",
     "datetime": "2020-10-06T01:27:17.328426Z"
   },
   "geometry": {
@@ -871,6 +871,62 @@
           "band_width": 20
         }
       ],
+      "roles": [
+        "data"
+      ]
+    },
+    "geoCoordinatesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/geo_coordinates.nc",
+      "type": "application/x-netcdf",
+      "description": "Geo Coordinates Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "instrumentDataData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/instrument_data.nc",
+      "type": "application/x-netcdf",
+      "description": "Instrument Annotation",
+      "roles": [
+        "data"
+      ]
+    },
+    "tieGeoCoordinatesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/tie_geo_coordinates.nc",
+      "type": "application/x-netcdf",
+      "description": "Tie-Point Geo Coordinate Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "tieGeometriesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/tie_geometries.nc",
+      "type": "application/x-netcdf",
+      "description": "Tie-Point Geometries Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "tieMeteoData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/tie_meteo.nc",
+      "type": "application/x-netcdf",
+      "description": "Tie-Point Meteo Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "timeCoordinatesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/time_coordinates.nc",
+      "type": "application/x-netcdf",
+      "description": "Time Coordinates Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "wqsfData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_WFR____20201006T012547_20201006T012847_20201007T100122_0180_063_302_3060_MAR_O_NT_002.SEN3/wqsf.nc",
+      "type": "application/x-netcdf",
+      "description": "Water Quality and Science Flags",
       "roles": [
         "data"
       ]
