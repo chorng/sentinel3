@@ -40,7 +40,7 @@
       }
     ],
     "platform": "Sentinel-3A",
-    "constellation": "Sentinel 3",
+    "constellation": "Sentinel-3",
     "datetime": "2018-01-05T00:24:54.153465Z"
   },
   "geometry": {
@@ -311,6 +311,84 @@
           "band_width": 10
         }
       ],
+      "roles": [
+        "data"
+      ]
+    },
+    "rcOgviData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/rc_ogvi.nc",
+      "type": "application/x-netcdf",
+      "description": "Rectified Reflectance",
+      "eo:bands": [
+        {
+          "name": "Oa10",
+          "description": "Band 10 - Chlorophyll fluorescence peak, red edge",
+          "center_wavelength": 681.25,
+          "band_width": 7.5
+        },
+        {
+          "name": "Oa17",
+          "description": "Band 17 - Atmospheric / aerosol correction, clouds, pixel co-registration",
+          "center_wavelength": 865,
+          "band_width": 20
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "lqsfData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/lqsf.nc",
+      "type": "application/x-netcdf",
+      "description": "Land Quality and Science Flags",
+      "roles": [
+        "data"
+      ]
+    },
+    "timeCoordinatesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/time_coordinates.nc",
+      "type": "application/x-netcdf",
+      "description": "Time Coordinates Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "geoCoordinatesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/geo_coordinates.nc",
+      "type": "application/x-netcdf",
+      "description": "Geo Coordinates Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "tieGeoCoordinatesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/tie_geo_coordinates.nc",
+      "type": "application/x-netcdf",
+      "description": "Tie-Point Geo Coordinate Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "tieGeometriesData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/tie_geometries.nc",
+      "type": "application/x-netcdf",
+      "description": "Tie-Point Geometries Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "tieMeteoData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/tie_meteo.nc",
+      "type": "application/x-netcdf",
+      "description": "Tie-Point Meteo Annotations",
+      "roles": [
+        "data"
+      ]
+    },
+    "instrumentDataData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_OL_2_LFR____20180105T002409_20180105T002540_20180106T053045_0090_026_216_2069_LN1_O_NT_002.SEN3/instrument_data.nc",
+      "type": "application/x-netcdf",
+      "description": "Instrument Annotation",
       "roles": [
         "data"
       ]

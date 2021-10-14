@@ -32,7 +32,7 @@
       }
     ],
     "platform": "Sentinel-3B",
-    "constellation": "Sentinel 3",
+    "constellation": "Sentinel-3",
     "datetime": "2021-02-13T19:49:19.044416Z"
   },
   "geometry": {
@@ -1469,6 +1469,62 @@
           "band_width": 85
         }
       ],
+      "roles": [
+        "data"
+      ]
+    },
+    "vaaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/vaa.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "vzaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/vza.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "saaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/saa.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "szaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/sza.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "agData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/ag.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "ogData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/og.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "wvgData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/wvg.nc",
+      "type": "application/x-netcdf",
+      "roles": [
+        "data"
+      ]
+    },
+    "smData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3B_SY_2_VGP____20210213T192726_20210213T201112_20210215T060438_2626_049_099______LN2_O_NT_002.SEN3/sm.nc",
+      "type": "application/x-netcdf",
       "roles": [
         "data"
       ]

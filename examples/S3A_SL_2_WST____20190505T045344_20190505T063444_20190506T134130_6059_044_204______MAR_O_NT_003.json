@@ -39,7 +39,7 @@
       }
     ],
     "platform": "Sentinel-3A",
-    "constellation": "Sentinel 3",
+    "constellation": "Sentinel-3",
     "datetime": "2019-05-05T05:44:14.154220Z"
   },
   "geometry": {

@@ -28,7 +28,7 @@
       }
     ],
     "platform": "Sentinel-3A",
-    "constellation": "Sentinel 3",
+    "constellation": "Sentinel-3",
     "datetime": "2020-06-10T00:00:00Z"
   },
   "geometry": {
@@ -1301,6 +1301,100 @@
           "band_width": 85
         }
       ],
+      "roles": [
+        "data"
+      ]
+    },
+    "ndviData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/NDVI.nc",
+      "type": "application/x-netcdf",
+      "description": "Normalised difference vegetation index",
+      "eo:bands": [
+        {
+          "name": "B2",
+          "description": "OLCI channels Oa06, Oa07, Oa08, Oa09, Oa10",
+          "center_wavelength": 645,
+          "band_width": 35
+        },
+        {
+          "name": "B3",
+          "description": "OLCI channels Oa16, Oa17, Oa18, Oa21",
+          "center_wavelength": 835,
+          "band_width": 55
+        }
+      ],
+      "roles": [
+        "data"
+      ]
+    },
+    "vaaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/vaa.nc",
+      "type": "application/x-netcdf",
+      "description": "View azimuth angle data",
+      "roles": [
+        "data"
+      ]
+    },
+    "vzaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/vza.nc",
+      "type": "application/x-netcdf",
+      "description": "View zenith angle data",
+      "roles": [
+        "data"
+      ]
+    },
+    "saaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/saa.nc",
+      "type": "application/x-netcdf",
+      "description": "Solar azimuth angle data",
+      "roles": [
+        "data"
+      ]
+    },
+    "szaData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/sza.nc",
+      "type": "application/x-netcdf",
+      "description": "Solar zenith angle data",
+      "roles": [
+        "data"
+      ]
+    },
+    "agData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/ag.nc",
+      "type": "application/x-netcdf",
+      "description": "Aerosol optical thickness data",
+      "roles": [
+        "data"
+      ]
+    },
+    "ogData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/og.nc",
+      "type": "application/x-netcdf",
+      "description": "Total Ozone column data",
+      "roles": [
+        "data"
+      ]
+    },
+    "wvgData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/wvg.nc",
+      "type": "application/x-netcdf",
+      "description": "Total column Water vapour data",
+      "roles": [
+        "data"
+      ]
+    },
+    "tgData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/tg.nc",
+      "type": "application/x-netcdf",
+      "description": "Synthesis time data",
+      "roles": [
+        "data"
+      ]
+    },
+    "smData": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SY_2_VG1____20200609T120000_20200610T120000_20200615T121610_CENTRAL_AMERICA___LN2_O_NT_002.SEN3/sm.nc",
+      "type": "application/x-netcdf",
+      "description": "Status Map data",
       "roles": [
         "data"
       ]

@@ -24,7 +24,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -39,11 +39,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -133,7 +133,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -148,11 +148,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -242,7 +242,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -257,11 +257,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -354,7 +354,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -369,11 +369,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -466,7 +466,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -481,11 +481,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -578,7 +578,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -593,11 +593,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -687,7 +687,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -702,11 +702,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -796,7 +796,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -811,11 +811,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -905,7 +905,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -920,11 +920,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1014,7 +1014,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1029,11 +1029,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1108,7 +1108,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1123,11 +1123,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1202,7 +1202,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1217,11 +1217,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1290,7 +1290,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1305,11 +1305,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1384,7 +1384,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1399,11 +1399,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1469,7 +1469,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1484,11 +1484,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)
@@ -1554,7 +1554,7 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         metalinks = MetadataLinks(manifest_path)
 
-        product_metadata = ProductMetadata(metalinks.product_metadata_href)
+        product_metadata = ProductMetadata(manifest_path, metalinks.manifest)
 
         item = pystac.Item(
             id=product_metadata.scene_id,
@@ -1569,11 +1569,11 @@ class Sentinel3OLCIMetadataTest(unittest.TestCase):
 
         # sat
         sat = SatExtension.ext(item, add_if_missing=True)
-        fill_sat_properties(sat, metalinks.product_metadata_href)
+        fill_sat_properties(sat, metalinks.manifest)
 
         # eo
         eo = EOExtension.ext(item, add_if_missing=True)
-        fill_eo_properties(eo, metalinks.product_metadata_href)
+        fill_eo_properties(eo, metalinks.manifest)
 
         # proj
         proj = ProjectionExtension.ext(item, add_if_missing=True)

@@ -39,7 +39,7 @@
       }
     ],
     "platform": "Sentinel-3A",
-    "constellation": "Sentinel 3",
+    "constellation": "Sentinel-3",
     "datetime": "2018-01-04T01:31:35.029797Z"
   },
   "geometry": {
@@ -1358,6 +1358,86 @@
           "band_width": 905
         }
       ],
+      "roles": [
+        "data"
+      ]
+    },
+    "LST_ANCILLARY_DS_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/LST_ancillary_ds.nc",
+      "type": "application/x-netcdf",
+      "description": "LST ancillary Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_FLAGS_IN_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/flags_in.nc",
+      "type": "application/x-netcdf",
+      "description": "Global Flags Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_INDICES_IN_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/indices_in.nc",
+      "type": "application/x-netcdf",
+      "description": "Indices Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_TIME_IN_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/time_in.nc",
+      "type": "application/x-netcdf",
+      "description": "Time Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_GEODETIC_IN_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/geodetic_in.nc",
+      "type": "application/x-netcdf",
+      "description": "Geodetic Coordinates Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_CARTESIAN_IN_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/cartesian_in.nc",
+      "type": "application/x-netcdf",
+      "description": "Cartesian Coordinates Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_GEOMETRY_TN_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/geometry_tn.nc",
+      "type": "application/x-netcdf",
+      "description": "Solar and Satellite Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_GEODETIC_TX_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/geodetic_tx.nc",
+      "type": "application/x-netcdf",
+      "description": "Geodetic Coordinates Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_CARTESIAN_TX_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/cartesian_tx.nc",
+      "type": "application/x-netcdf",
+      "description": "Cartesian Coordinates Annotation Data Set",
+      "roles": [
+        "data"
+      ]
+    },
+    "SLSTR_MET_TX_Data": {
+      "href": "/opt/stactools-sentinel3/tests/data-files/S3A_SL_2_LST____20180104T004105_20180104T022205_20180930T071122_6059_026_202______LR1_R_NT_003.SEN3/met_tx.nc",
+      "type": "application/x-netcdf",
+      "description": "Meteorological Parameters Auxiliary Data Set",
       "roles": [
         "data"
       ]
