@@ -7,6 +7,8 @@ INSPIRE_METADATA_ASSET_KEY = "inspire-metadata"
 SAFE_MANIFEST_ASSET_KEY = "safe-manifest"
 PRODUCT_METADATA_ASSET_KEY = "product-metadata"
 
+MANIFEST_FILENAME = "xfdumanifest.xml"
+
 SENTINEL_LICENSE = Link(
     rel="license",
     target="https://sentinel.esa.int/documents/" +
@@ -14,8 +16,6 @@ SENTINEL_LICENSE = Link(
 )
 
 SENTINEL_CONSTELLATION = "Sentinel-3"
-
-SENTINEL_INSTRUMENTS = ["slstr"]
 
 SENTINEL_PROVIDER = pystac.Provider(
     name="ESA",
@@ -26,8 +26,6 @@ SENTINEL_PROVIDER = pystac.Provider(
     ],
     url="https://earth.esa.int/web/guest/home",
 )
-
-SAFE_MANIFEST_ASSET_KEY = "safe-manifest"
 
 SENTINEL_SLSTR_BANDS = {
     "S01":
@@ -572,12 +570,6 @@ SLSTR_BANDS_TO_RESOLUTIONS = {
         1000,
     ],
 }
-
-SENTINEL_LICENSE = Link(
-    rel="license",
-    target="https://sentinel.esa.int/documents/" +
-    "247904/690755/Sentinel_Data_Legal_Notice",
-)
 
 SYNERGY_SYN_ASSET_KEYS = [
     "Syn_Oa01_reflectance_Data", "Syn_Oa02_reflectance_Data",
